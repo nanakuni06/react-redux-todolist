@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteTodo, editBodyTodo, editStatusTodo, editTodo, setTodosView } from '../redux/action/todo-acrtion';
-import { IconPencil } from '@tabler/icons-react';
-import { IconTrashXFilled } from '@tabler/icons-react';
+import { IconPencil, IconTrashXFilled } from '@tabler/icons-react';
 
 function TodoList() {
   const { todos, todosView } = useSelector((state) => state.todo);
