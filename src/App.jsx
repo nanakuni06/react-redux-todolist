@@ -3,7 +3,7 @@ import Todo from "./pages/todo"
 function App() {
   return (
     <>
-    <div clas>
+    <div>
       <Todo/>
     </div>
     </>
