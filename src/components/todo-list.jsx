@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteTodo, editBodyTodo, editStatusTodo, editTodo, setTodosView } from '../redux/action/todo-acrtion';
-// import { IconPencil, IconTrashXFilled } from '@tabler/icons-react';
+import { IconPencil, IconTrashXFilled } from '@tabler/icons-react';
 
 function TodoList() {
   const { todos, todosView } = useSelector((state) => state.todo);
@@ -45,8 +45,8 @@ function TodoList() {
                   <span className={`label-text break-all ${todo.completed && "line-through"} text-white`}>{todo.value}</span>
                 </label>
                 <div className="flex items-center px-2 gap-x-4">
-                  <div onClick={() => handleEdit(todo.id)} className="cursor-pointer" />
-                  <div onClick={() => handleDelete(todo.id)} className="cursor-pointer" />
+                  <IconPencil onClick={() => handleEdit(todo.id)} className="cursor-pointer" />
+                  <IconTrashXFilled onClick={() => handleDelete(todo.id)} className="cursor-pointer" />
                 </div>
               </div>
             )}
