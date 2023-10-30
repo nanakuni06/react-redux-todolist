@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteTodo, editTodo } from '../redux/action/todo-acrtion';
+import { deleteTodo, editBodyTodo, editStatusTodo, editTodo, setTodosView } from '../redux/action/todo-acrtion';
+import { IconPencil } from '@tabler/icons-react';
+import { IconTrashXFilled } from '@tabler/icons-react';
 
 function TodoList() {
-   const { todos, todosView } = useSelector((state) => state.todo);
+  const { todos, todosView } = useSelector((state) => state.todo);
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
@@ -13,6 +15,18 @@ function TodoList() {
   const handleEdit = (id) => {
     dispatch(editTodo(id));
   };
+
+  const handleEditBody = (value, id, isEdit) => {
+    dispatch(editBodyTodo(value, id, isEdit));
+  };
+
+  const handleStatus = (id) => {
+    dispatch(editStatusTodo(id));
+  };
+
+  useEffect(() => {
+    dispatch(setTodosView(todos));
+  }, [todos]);
 
   return (
     <div className="flex flex-col">
@@ -44,6 +58,14 @@ function TodoList() {
                   placeholder="Type here"
                   className="input w-full focus:outline-none"
                   value={todo.value}
+                  onChange={(e) => {
+                    handleEditBody(e.target.value, todo.id, true);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleEditBody(e.target.value, todo.id, false);
+                    }
+                  }}
                   autoFocus="autofocus"
                 />
                 <button onClick={() => handleEdit(todo.id)} className="btn">
