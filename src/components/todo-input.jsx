@@ -28,9 +28,9 @@ function TodoInput() {
             onChange={(e) => setInput(e.target.value)}
             type="text"
             placeholder="What to do"
-            className="input input-bordered input-primary w-full"
+            className="px-2 py-1 w-full border-solid border-black border-2 rounded-md bg-slate-50"
             />
-            <button type="submit" className="btn btn-primary">Add</button>
+            <button type="submit" className="px-4 py-2 border-solid border-black border-2 rounded-lg bg-blue-400 hover:bg-blue-500">Add</button>
         </div>
         {error && <div className="text-red-500 font-semibold">Error! Todo is empty.</div>}
         </form>
