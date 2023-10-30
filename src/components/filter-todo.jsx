@@ -38,14 +38,14 @@ function FilterTodo() {
   };
 
   return (
-    <div className="my-5 flex gap-x-2 sm:flex-none">
-      <div onClick={handleAll} className={`badge ${status.statusAll ? "px-3 py-1 rounded-xl bg-violet-700 text-white" : "px-3 py-1 rounded-xl hover:bg-violet-700 hover:text-white"} cursor-pointer`}>
+    <div className="my-5 flex gap-x-2">
+      <div onClick={handleAll} className={`badge ${status.statusAll ? "bg-violet-900 px-3 py-3 text-white border-none" : "hover:badge-ghost hover: px-3 hover:py-3"} cursor-pointer px-3 py-3`}>
         All
       </div>
-      <div onClick={handleActive} className={`badge ${status.statusActive ? "px-3 py-1 rounded-xl bg-violet-700 text-white" : "px-3 py-1 rounded-xl hover:bg-violet-700 hover:text-white"} cursor-pointer`}>
+      <div onClick={handleActive} className={`badge ${status.statusActive ? "bg-violet-900 px-3 py-3 text-white border-none" : "hover:badge-ghost hover: px-3 hover:py-3"} cursor-pointer px-3 py-3`}>
         Active
       </div>
-      <div onClick={handleComplete} className={`badge ${status.statusComplete ? "px-3 py-1 rounded-xl bg-violet-700 text-white" : "px-3 py-1 rounded-xl hover:bg-violet-700 hover:text-white"} cursor-pointer`}>
+      <div onClick={handleComplete} className={`badge ${status.statusComplete ? "bg-violet-900 px-3 py-3 text-white border-none" : "hover:badge-ghost hover: px-3 hover:py-3"} cursor-pointer px-3 py-3`}>
         Completed
       </div>
     </div>

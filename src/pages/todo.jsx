@@ -7,12 +7,17 @@ import FilterTodo from '../components/filter-todo'
 function Todo() {
   return (
     <>
-    <div className="w-full max-w-2xl mx-auto px-16 py-14 my-20 w-100 md:-10 lg:my-40 lg:mx-auto rounded-xl bg-violet-400 shadow-xl body-font font-poppins">
-        <Header/>
-        <TodoInput/>
-        <FilterTodo/>
-        <TodoList/>
+    <div className='lg:px-80 lg:py-20 mx-0 py-20 px-5 bg-gradient-to-r from-pink-500 to-violet-500'>
+      <div className="card shadow-2xl justify-center bg-violet-400">
+        <div className="card-body">
+            <Header/>
+            <TodoInput/>
+            <FilterTodo/>
+            <TodoList/>
+        </div>
+      </div>
     </div>
+
     </>
   )
 }
