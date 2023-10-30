@@ -7,9 +7,9 @@ const initialValue = {
     todosView: [],
   };
   
-  function todoReducer(state = initialValue, action) {
+function todoReducer(state = initialValue, action) {
     switch (action.type) {
-      case "ADD_TODO":
+    case "ADD_TODO":
         const newTodo = {
           id: Date.now(),
           value: action.payload,
@@ -21,8 +21,34 @@ const initialValue = {
           ...state,
           todos: cloneTodos, 
         };
+    case "DELETE_TODO":
+      const filterTodo = state.todos.filter((item) => item.id != action.payload);
+      return {
+        ...state,
+        todos: filterTodo
+    };
+
+    case "EDIT_TODO":
+      const editedTodoId = action.payload.id;
+      const updatedTodos = state.todos.map((todo) => {
+        if (todo.id === editedTodoId) {
+          return {
+            id: todo.id,
+            value: todo.value,
+            completed: todo.completed,
+            isEdit: !todo.isEdit,
+          };
+        } else {
+          return todo;
+        }
+      });
+
+      return {
+        ...state,
+        todos: updatedTodos,
+      };
     default:
-        return state;
+    return state;
     }
 }
       
